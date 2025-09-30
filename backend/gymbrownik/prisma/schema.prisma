@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AuthRole {
+  ADMIN
+  USER
+}
+
+enum WorkoutType {
+  PUSH_PULL_LEGS
+  UPPER_LOWER
+  FBW
+  SPLIT
+  CUSTOM
+}
+
+model User {
+  id           Int            @id @default(autoincrement())
+  email        String         @unique
+  name         String
+  trainingWeeks TrainingWeek[]
+}
+
+model TrainingWeek {
+  id            Int           @id @default(autoincrement())
+  name          String
+  workoutType   WorkoutType
+  restDays      Int
+  trainingDays  Int
+
+  userId        Int
+  user          User          @relation(fields: [userId], references: [id])
+
+  days          TrainingDay[]
+}
+
+model TrainingDay {
+  id             Int       @id @default(autoincrement())
+  dayOfWeek      Int       // 1 = Monday, 7 = Sunday (albo enum z nazwami)
+  
+  trainingWeekId Int
+  trainingWeek   TrainingWeek @relation(fields: [trainingWeekId], references: [id])
+
+  workoutId      Int
+  workout        Workout   @relation(fields: [workoutId], references: [id])
+}
+
+model Workout {
+  id        Int        @id @default(autoincrement())
+  name      String
+  exercises Exercise[]
+  days      TrainingDay[]
+}
+
+model Exercise {
+  id       Int     @id @default(autoincrement())
+  name     String  
+  series   Int
+  reps     Int
+  weight   Decimal @db.Decimal(5,2)
+  rest     Int?   // seconds
+
+  workoutId Int
+  workout   Workout @relation(fields: [workoutId], references: [id])
+}
