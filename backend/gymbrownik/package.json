@@ -3,7 +3,12 @@
     "prisma": "^6.16.2"
   },
   "dependencies": {
-    "@prisma/client": "^6.16.2"
+    "@nestjs/common": "^11.1.6",
+    "@nestjs/core": "^11.1.6",
+    "@nestjs/platform-express": "^11.1.6",
+    "@prisma/client": "^6.16.2",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
