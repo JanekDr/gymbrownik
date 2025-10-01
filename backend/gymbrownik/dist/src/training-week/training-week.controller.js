@@ -22,8 +22,8 @@ let TrainingWeekController = class TrainingWeekController {
     constructor(trainingWeekService) {
         this.trainingWeekService = trainingWeekService;
     }
-    create(createTrainingWeekDto) {
-        return this.trainingWeekService.create(createTrainingWeekDto);
+    create(createDto) {
+        return this.trainingWeekService.create(createDto);
     }
     findAll() {
         return this.trainingWeekService.findAll();
@@ -31,8 +31,8 @@ let TrainingWeekController = class TrainingWeekController {
     findOne(id) {
         return this.trainingWeekService.findOne(+id);
     }
-    update(id, updateTrainingWeekDto) {
-        return this.trainingWeekService.update(+id, updateTrainingWeekDto);
+    update(id, updateDto) {
+        return this.trainingWeekService.update(+id, updateDto);
     }
     remove(id) {
         return this.trainingWeekService.remove(+id);

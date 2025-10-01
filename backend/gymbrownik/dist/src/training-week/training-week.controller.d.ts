@@ -4,9 +4,102 @@ import { UpdateTrainingWeekDto } from './dto/update-training-week.dto';
 export declare class TrainingWeekController {
     private readonly trainingWeekService;
     constructor(trainingWeekService: TrainingWeekService);
-    create(createTrainingWeekDto: CreateTrainingWeekDto): string;
-    findAll(): string;
-    findOne(id: string): string;
-    update(id: string, updateTrainingWeekDto: UpdateTrainingWeekDto): string;
-    remove(id: string): string;
+    create(createDto: CreateTrainingWeekDto): Promise<{
+        days: {
+            id: number;
+            dayOfWeek: number;
+            workoutId: number;
+            trainingWeekId: number;
+        }[];
+        user: {
+            name: string;
+            id: number;
+            email: string;
+        };
+    } & {
+        name: string;
+        id: number;
+        workoutType: import("@prisma/client").$Enums.WorkoutType;
+        restDays: number;
+        trainingDays: number;
+        userId: number;
+    }>;
+    findAll(): Promise<({
+        days: ({
+            workout: {
+                name: string;
+                id: number;
+            };
+        } & {
+            id: number;
+            dayOfWeek: number;
+            workoutId: number;
+            trainingWeekId: number;
+        })[];
+        user: {
+            name: string;
+            id: number;
+            email: string;
+        };
+    } & {
+        name: string;
+        id: number;
+        workoutType: import("@prisma/client").$Enums.WorkoutType;
+        restDays: number;
+        trainingDays: number;
+        userId: number;
+    })[]>;
+    findOne(id: string): Promise<{
+        days: ({
+            workout: {
+                name: string;
+                id: number;
+            };
+        } & {
+            id: number;
+            dayOfWeek: number;
+            workoutId: number;
+            trainingWeekId: number;
+        })[];
+        user: {
+            name: string;
+            id: number;
+            email: string;
+        };
+    } & {
+        name: string;
+        id: number;
+        workoutType: import("@prisma/client").$Enums.WorkoutType;
+        restDays: number;
+        trainingDays: number;
+        userId: number;
+    }>;
+    update(id: string, updateDto: UpdateTrainingWeekDto): Promise<{
+        days: ({
+            workout: {
+                name: string;
+                id: number;
+            };
+        } & {
+            id: number;
+            dayOfWeek: number;
+            workoutId: number;
+            trainingWeekId: number;
+        })[];
+        user: {
+            name: string;
+            id: number;
+            email: string;
+        };
+    } & {
+        name: string;
+        id: number;
+        workoutType: import("@prisma/client").$Enums.WorkoutType;
+        restDays: number;
+        trainingDays: number;
+        userId: number;
+    }>;
+    remove(id: string): Promise<{
+        message: string;
+    }>;
 }
