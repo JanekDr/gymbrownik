@@ -5,7 +5,6 @@ import { DatabaseModule } from "./database/database.module";
 import { UserModule } from "./user/user.module";
 import { TrainingPlanModule } from "./training-plan/training-plan.module";
 import { WorkoutModule } from "./workout/workout.module";
-import { ExerciseController } from './workout/exercise.controller';
 import { ExerciseModule } from './exercise/exercise.module';
 
 @Module({
@@ -16,7 +15,7 @@ import { ExerciseModule } from './exercise/exercise.module';
     WorkoutModule,
     ExerciseModule,
   ],
-  controllers: [AppController, ExerciseController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

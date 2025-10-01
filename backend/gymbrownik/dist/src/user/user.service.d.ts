@@ -15,9 +15,9 @@ export declare class UserService {
             userId: number;
         }[];
     } & {
-        email: string;
         name: string;
         id: number;
+        email: string;
     }>;
     findAll(): Promise<({
         trainingWeeks: {
@@ -29,9 +29,9 @@ export declare class UserService {
             userId: number;
         }[];
     } & {
-        email: string;
         name: string;
         id: number;
+        email: string;
     })[]>;
     findOne(id: number): Promise<{
         trainingWeeks: {
@@ -43,9 +43,9 @@ export declare class UserService {
             userId: number;
         }[];
     } & {
-        email: string;
         name: string;
         id: number;
+        email: string;
     }>;
     update(id: number, dto: UpdateUserDto): Promise<{
         trainingWeeks: {
@@ -57,9 +57,9 @@ export declare class UserService {
             userId: number;
         }[];
     } & {
-        email: string;
         name: string;
         id: number;
+        email: string;
     }>;
     remove(id: number): Promise<void>;
 }

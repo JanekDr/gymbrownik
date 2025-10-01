@@ -14,6 +14,7 @@ const database_module_1 = require("./database/database.module");
 const user_module_1 = require("./user/user.module");
 const training_plan_module_1 = require("./training-plan/training-plan.module");
 const workout_module_1 = require("./workout/workout.module");
+const exercise_module_1 = require("./exercise/exercise.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -24,6 +25,7 @@ exports.AppModule = AppModule = __decorate([
             user_module_1.UserModule,
             training_plan_module_1.TrainingPlanModule,
             workout_module_1.WorkoutModule,
+            exercise_module_1.ExerciseModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

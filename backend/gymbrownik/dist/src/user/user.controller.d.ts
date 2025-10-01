@@ -14,9 +14,9 @@ export declare class UserController {
             userId: number;
         }[];
     } & {
-        email: string;
         name: string;
         id: number;
+        email: string;
     }>;
     findAll(): Promise<({
         trainingWeeks: {
@@ -28,9 +28,9 @@ export declare class UserController {
             userId: number;
         }[];
     } & {
-        email: string;
         name: string;
         id: number;
+        email: string;
     })[]>;
     findOne(id: string): Promise<{
         trainingWeeks: {
@@ -42,9 +42,9 @@ export declare class UserController {
             userId: number;
         }[];
     } & {
-        email: string;
         name: string;
         id: number;
+        email: string;
     }>;
     update(id: string, updateUserDto: UpdateUserDto): Promise<{
         trainingWeeks: {
@@ -56,9 +56,9 @@ export declare class UserController {
             userId: number;
         }[];
     } & {
-        email: string;
         name: string;
         id: number;
+        email: string;
     }>;
     remove(id: string): Promise<void>;
 }

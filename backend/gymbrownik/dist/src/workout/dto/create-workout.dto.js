@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateWorkoutDto = void 0;
 const class_validator_1 = require("class-validator");
 const class_transformer_1 = require("class-transformer");
-const create_exercise_dto_1 = require("./create-exercise.dto");
+const create_exercise_dto_1 = require("../../exercise/dto/create-exercise.dto");
 class CreateWorkoutDto {
     name;
     exercises;
