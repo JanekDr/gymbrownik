@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const client_1 = require(".prisma/client");
+const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 async function main() {
     const bench = await prisma.exercise.create({ data: { name: 'Bench Press' } });
@@ -12,41 +12,21 @@ async function main() {
     const squat = await prisma.exercise.create({ data: { name: 'Squat' } });
     const legPress = await prisma.exercise.create({ data: { name: 'Leg Press' } });
     const calf = await prisma.exercise.create({ data: { name: 'Calf Raises' } });
-    const pushWorkout = await prisma.workout.create({
-        data: {
-            name: 'Push Day',
-            exercises: {
-                create: [
-                    { exerciseId: bench.id, series: 4, reps: 8, weight: 80.0, rest: 120 },
-                    { exerciseId: ohp.id, series: 3, reps: 10, weight: 40.0, rest: 90 },
-                    { exerciseId: triceps.id, series: 3, reps: 12, weight: 25.0, rest: 60 },
-                ],
-            },
-        },
-    });
-    const pullWorkout = await prisma.workout.create({
-        data: {
-            name: 'Pull Day',
-            exercises: {
-                create: [
-                    { exerciseId: deadlift.id, series: 4, reps: 6, weight: 100.0, rest: 180 },
-                    { exerciseId: pullUps.id, series: 4, reps: 10, weight: 0.0, rest: 120 },
-                    { exerciseId: row.id, series: 3, reps: 10, weight: 60.0, rest: 90 },
-                ],
-            },
-        },
-    });
-    const legWorkout = await prisma.workout.create({
-        data: {
-            name: 'Leg Day',
-            exercises: {
-                create: [
-                    { exerciseId: squat.id, series: 4, reps: 8, weight: 90.0, rest: 150 },
-                    { exerciseId: legPress.id, series: 3, reps: 12, weight: 120.0, rest: 120 },
-                    { exerciseId: calf.id, series: 4, reps: 15, weight: 40.0, rest: 60 },
-                ],
-            },
-        },
+    const pushWorkout = await prisma.workout.create({ data: { name: 'Push Day' } });
+    const pullWorkout = await prisma.workout.create({ data: { name: 'Pull Day' } });
+    const legWorkout = await prisma.workout.create({ data: { name: 'Leg Day' } });
+    await prisma.workoutExercise.createMany({
+        data: [
+            { workoutId: pushWorkout.id, exerciseId: bench.id, series: 4, reps: 8, weight: 80.0, rest: 120 },
+            { workoutId: pushWorkout.id, exerciseId: ohp.id, series: 3, reps: 10, weight: 40.0, rest: 90 },
+            { workoutId: pushWorkout.id, exerciseId: triceps.id, series: 3, reps: 12, weight: 25.0, rest: 60 },
+            { workoutId: pullWorkout.id, exerciseId: deadlift.id, series: 4, reps: 6, weight: 100.0, rest: 180 },
+            { workoutId: pullWorkout.id, exerciseId: pullUps.id, series: 4, reps: 10, weight: 0.0, rest: 120 },
+            { workoutId: pullWorkout.id, exerciseId: row.id, series: 3, reps: 10, weight: 60.0, rest: 90 },
+            { workoutId: legWorkout.id, exerciseId: squat.id, series: 4, reps: 8, weight: 90.0, rest: 150 },
+            { workoutId: legWorkout.id, exerciseId: legPress.id, series: 3, reps: 12, weight: 120.0, rest: 120 },
+            { workoutId: legWorkout.id, exerciseId: calf.id, series: 4, reps: 15, weight: 40.0, rest: 60 },
+        ],
     });
     await prisma.user.create({
         data: {
@@ -71,12 +51,12 @@ async function main() {
             },
         },
     });
-    console.log('Seed completed ✅');
+    console.log('✅ Seed completed');
 }
 main()
     .catch((error) => {
     console.error(error);
-    throw error;
+    process.exit(1);
 })
     .finally(async () => {
     await prisma.$disconnect();

@@ -5,43 +5,43 @@ export declare class ExerciseService {
     private prisma;
     constructor(prisma: DatabaseService);
     create(dto: CreateExerciseDto): Promise<{
-        id: number;
         name: string;
+        id: number;
     }>;
     findAll(): Promise<({
         workouts: {
             id: number;
+            workoutId: number;
+            exerciseId: number;
             series: number;
             reps: number;
             weight: import("@prisma/client/runtime/library").Decimal;
             rest: number | null;
-            exerciseId: number;
-            workoutId: number;
         }[];
     } & {
-        id: number;
         name: string;
+        id: number;
     })[]>;
     findOne(id: number): Promise<{
         workouts: {
             id: number;
+            workoutId: number;
+            exerciseId: number;
             series: number;
             reps: number;
             weight: import("@prisma/client/runtime/library").Decimal;
             rest: number | null;
-            exerciseId: number;
-            workoutId: number;
         }[];
     } & {
-        id: number;
         name: string;
+        id: number;
     }>;
     update(id: number, dto: UpdateExerciseDto): Promise<{
-        id: number;
         name: string;
+        id: number;
     }>;
     remove(id: number): Promise<{
-        id: number;
         name: string;
+        id: number;
     }>;
 }

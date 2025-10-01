@@ -22,8 +22,8 @@ let WorkoutController = class WorkoutController {
     constructor(workoutService) {
         this.workoutService = workoutService;
     }
-    create(createWorkoutDto) {
-        return this.workoutService.create(createWorkoutDto);
+    create(createDto) {
+        return this.workoutService.create(createDto);
     }
     findAll() {
         return this.workoutService.findAll();
@@ -31,8 +31,8 @@ let WorkoutController = class WorkoutController {
     findOne(id) {
         return this.workoutService.findOne(+id);
     }
-    update(id, updateWorkoutDto) {
-        return this.workoutService.update(+id, updateWorkoutDto);
+    update(id, updateDto) {
+        return this.workoutService.update(+id, updateDto);
     }
     remove(id) {
         return this.workoutService.remove(+id);
@@ -53,29 +53,29 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], WorkoutController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], WorkoutController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Patch)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_workout_dto_1.UpdateWorkoutDto]),
     __metadata("design:returntype", void 0)
 ], WorkoutController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], WorkoutController.prototype, "remove", null);
 exports.WorkoutController = WorkoutController = __decorate([
-    (0, common_1.Controller)("workout"),
+    (0, common_1.Controller)('workout'),
     __metadata("design:paramtypes", [workout_service_1.WorkoutService])
 ], WorkoutController);
 //# sourceMappingURL=workout.controller.js.map

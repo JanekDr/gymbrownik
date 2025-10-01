@@ -5,43 +5,43 @@ export declare class ExerciseController {
     private readonly exerciseService;
     constructor(exerciseService: ExerciseService);
     create(createExerciseDto: CreateExerciseDto): Promise<{
-        id: number;
         name: string;
+        id: number;
     }>;
     findAll(): Promise<({
         workouts: {
             id: number;
+            workoutId: number;
+            exerciseId: number;
             series: number;
             reps: number;
             weight: import("@prisma/client/runtime/library").Decimal;
             rest: number | null;
-            exerciseId: number;
-            workoutId: number;
         }[];
     } & {
-        id: number;
         name: string;
+        id: number;
     })[]>;
     findOne(id: string): Promise<{
         workouts: {
             id: number;
+            workoutId: number;
+            exerciseId: number;
             series: number;
             reps: number;
             weight: import("@prisma/client/runtime/library").Decimal;
             rest: number | null;
-            exerciseId: number;
-            workoutId: number;
         }[];
     } & {
-        id: number;
         name: string;
+        id: number;
     }>;
     update(id: string, updateExerciseDto: UpdateExerciseDto): Promise<{
-        id: number;
         name: string;
+        id: number;
     }>;
     remove(id: string): Promise<{
-        id: number;
         name: string;
+        id: number;
     }>;
 }

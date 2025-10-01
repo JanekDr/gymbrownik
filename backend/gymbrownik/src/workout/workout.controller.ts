@@ -6,18 +6,18 @@ import {
   Patch,
   Param,
   Delete,
-} from "@nestjs/common";
-import { WorkoutService } from "./workout.service";
-import { CreateWorkoutDto } from "./dto/create-workout.dto";
-import { UpdateWorkoutDto } from "./dto/update-workout.dto";
+} from '@nestjs/common';
+import { WorkoutService } from './workout.service';
+import { CreateWorkoutDto } from './dto/create-workout.dto';
+import { UpdateWorkoutDto } from './dto/update-workout.dto';
 
-@Controller("workout")
+@Controller('workout')
 export class WorkoutController {
   constructor(private readonly workoutService: WorkoutService) {}
 
   @Post()
-  create(@Body() createWorkoutDto: CreateWorkoutDto) {
-    return this.workoutService.create(createWorkoutDto);
+  create(@Body() createDto: CreateWorkoutDto) {
+    return this.workoutService.create(createDto);
   }
 
   @Get()
@@ -25,18 +25,18 @@ export class WorkoutController {
     return this.workoutService.findAll();
   }
 
-  @Get(":id")
-  findOne(@Param("id") id: string) {
+  @Get(':id')
+  findOne(@Param('id') id: string) {
     return this.workoutService.findOne(+id);
   }
 
-  @Patch(":id")
-  update(@Param("id") id: string, @Body() updateWorkoutDto: UpdateWorkoutDto) {
-    return this.workoutService.update(+id, updateWorkoutDto);
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateDto: UpdateWorkoutDto) {
+    return this.workoutService.update(+id, updateDto);
   }
 
-  @Delete(":id")
-  remove(@Param("id") id: string) {
+  @Delete(':id')
+  remove(@Param('id') id: string) {
     return this.workoutService.remove(+id);
   }
 }

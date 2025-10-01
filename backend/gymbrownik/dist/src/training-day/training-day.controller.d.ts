@@ -6,12 +6,12 @@ export declare class TrainingDayController {
     constructor(trainingDayService: TrainingDayService);
     create(createDto: CreateTrainingDayDto): Promise<{
         workout: {
-            id: number;
             name: string;
+            id: number;
         };
         trainingWeek: {
-            id: number;
             name: string;
+            id: number;
             workoutType: import("@prisma/client").$Enums.WorkoutType;
             restDays: number;
             trainingDays: number;
@@ -25,12 +25,12 @@ export declare class TrainingDayController {
     }>;
     findAll(): Promise<({
         workout: {
-            id: number;
             name: string;
+            id: number;
         };
         trainingWeek: {
-            id: number;
             name: string;
+            id: number;
             workoutType: import("@prisma/client").$Enums.WorkoutType;
             restDays: number;
             trainingDays: number;
@@ -44,12 +44,12 @@ export declare class TrainingDayController {
     })[]>;
     findOne(id: string): Promise<{
         workout: {
-            id: number;
             name: string;
+            id: number;
         };
         trainingWeek: {
-            id: number;
             name: string;
+            id: number;
             workoutType: import("@prisma/client").$Enums.WorkoutType;
             restDays: number;
             trainingDays: number;
@@ -63,12 +63,12 @@ export declare class TrainingDayController {
     }>;
     update(id: string, updateDto: UpdateTrainingDayDto): Promise<{
         workout: {
-            id: number;
             name: string;
+            id: number;
         };
         trainingWeek: {
-            id: number;
             name: string;
+            id: number;
             workoutType: import("@prisma/client").$Enums.WorkoutType;
             restDays: number;
             trainingDays: number;
