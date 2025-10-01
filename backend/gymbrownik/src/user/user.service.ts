@@ -1,26 +1,60 @@
-import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { Injectable, NotFoundException } from "@nestjs/common";
+import { DatabaseService } from "src/database/database.service";
+import { CreateUserDto } from "./dto/create-user.dto";
+import { UpdateUserDto } from "./dto/update-user.dto";
 
 @Injectable()
 export class UserService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+  constructor(private readonly database: DatabaseService) {}
+
+  private async getUserOrThrow(id: number) {
+    const user = await this.database.user.findUnique({
+      where: { id },
+      include: { trainingWeeks: true },
+    });
+
+    if (user == null) {
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
+    return user;
   }
 
-  findAll() {
-    return `This action returns all user`;
+  async create(dto: CreateUserDto) {
+    return this.database.user.create({
+      data: {
+        email: dto.email,
+        name: dto.name,
+      },
+      include: { trainingWeeks: true },
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  async findAll() {
+    return this.database.user.findMany({
+      include: { trainingWeeks: true },
+      orderBy: { id: "asc" },
+    });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async findOne(id: number) {
+    return this.getUserOrThrow(id);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async update(id: number, dto: UpdateUserDto) {
+    await this.getUserOrThrow(id);
+
+    return this.database.user.update({
+      where: { id },
+      data: {
+        ...(dto.email && { email: dto.email }),
+        ...(dto.name && { name: dto.name }),
+      },
+      include: { trainingWeeks: true },
+    });
+  }
+
+  async remove(id: number): Promise<void> {
+    await this.getUserOrThrow(id);
+    await this.database.user.delete({ where: { id } });
   }
 }

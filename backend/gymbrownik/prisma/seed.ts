@@ -1,16 +1,16 @@
-import { PrismaClient, WorkoutType} from '.prisma/client';
+import { PrismaClient, WorkoutType } from ".prisma/client";
 
 const prisma = new PrismaClient();
 
 async function main() {
   await prisma.user.create({
     data: {
-      email: 'jan.kowalski@example.com',
-      name: 'Jan Kowalski',
+      email: "jan.kowalski@example.com",
+      name: "Jan Kowalski",
       trainingWeeks: {
         create: [
           {
-            name: 'Push Pull Legs Week 1',
+            name: "Push Pull Legs Week 1",
             workoutType: WorkoutType.PUSH_PULL_LEGS,
             restDays: 1,
             trainingDays: 3,
@@ -20,25 +20,25 @@ async function main() {
                   dayOfWeek: 1, // Poniedziałek
                   workout: {
                     create: {
-                      name: 'Push Day',
+                      name: "Push Day",
                       exercises: {
                         create: [
                           {
-                            name: 'Bench Press',
+                            name: "Bench Press",
                             series: 4,
                             reps: 8,
                             weight: 80.0,
                             rest: 120,
                           },
                           {
-                            name: 'Overhead Press',
+                            name: "Overhead Press",
                             series: 3,
                             reps: 10,
                             weight: 40.0,
                             rest: 90,
                           },
                           {
-                            name: 'Triceps Pushdown',
+                            name: "Triceps Pushdown",
                             series: 3,
                             reps: 12,
                             weight: 25.0,
@@ -53,25 +53,25 @@ async function main() {
                   dayOfWeek: 3, // Środa
                   workout: {
                     create: {
-                      name: 'Pull Day',
+                      name: "Pull Day",
                       exercises: {
                         create: [
                           {
-                            name: 'Deadlift',
+                            name: "Deadlift",
                             series: 4,
                             reps: 6,
                             weight: 100.0,
                             rest: 180,
                           },
                           {
-                            name: 'Pull Ups',
+                            name: "Pull Ups",
                             series: 4,
                             reps: 10,
                             weight: 0.0,
                             rest: 120,
                           },
                           {
-                            name: 'Barbell Row',
+                            name: "Barbell Row",
                             series: 3,
                             reps: 10,
                             weight: 60.0,
@@ -86,25 +86,25 @@ async function main() {
                   dayOfWeek: 5, // Piątek
                   workout: {
                     create: {
-                      name: 'Leg Day',
+                      name: "Leg Day",
                       exercises: {
                         create: [
                           {
-                            name: 'Squat',
+                            name: "Squat",
                             series: 4,
                             reps: 8,
                             weight: 90.0,
                             rest: 150,
                           },
                           {
-                            name: 'Leg Press',
+                            name: "Leg Press",
                             series: 3,
                             reps: 12,
                             weight: 120.0,
                             rest: 120,
                           },
                           {
-                            name: 'Calf Raises',
+                            name: "Calf Raises",
                             series: 4,
                             reps: 15,
                             weight: 40.0,
@@ -137,6 +137,7 @@ async function main() {
       },
     },
   });
+  console.log("Seeding completed.");
 }
 
 main()

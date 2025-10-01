@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
-import { CreateTrainingPlanDto } from './dto/create-training-plan.dto';
-import { UpdateTrainingPlanDto } from './dto/update-training-plan.dto';
+import { Injectable } from "@nestjs/common";
+import { CreateTrainingPlanDto } from "./dto/create-training-plan.dto";
+import { UpdateTrainingPlanDto } from "./dto/update-training-plan.dto";
 
 @Injectable()
 export class TrainingPlanService {
   create(createTrainingPlanDto: CreateTrainingPlanDto) {
-    return 'This action adds a new trainingPlan';
+    return "This action adds a new trainingPlan";
   }
 
   findAll() {
