@@ -1,9 +1,6 @@
 {
   "devDependencies": {
-    "@types/node": "^24.6.1",
-    "prisma": "^6.16.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "prisma": "^6.16.2"
   },
   "dependencies": {
     "@nestjs/common": "^11.1.6",
@@ -16,12 +13,5 @@
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
-  },
-  "scripts": {
-    "start": "nest start",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
-    "build": "nest build"
   }
 }

@@ -5,6 +5,8 @@ import { DatabaseModule } from "./database/database.module";
 import { UserModule } from "./user/user.module";
 import { TrainingPlanModule } from "./training-plan/training-plan.module";
 import { WorkoutModule } from "./workout/workout.module";
+import { ExerciseController } from './workout/exercise.controller';
+import { ExerciseModule } from './exercise/exercise.module';
 
 @Module({
   imports: [
@@ -12,8 +14,9 @@ import { WorkoutModule } from "./workout/workout.module";
     UserModule,
     TrainingPlanModule,
     WorkoutModule,
+    ExerciseModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, ExerciseController],
   providers: [AppService],
 })
 export class AppModule {}
