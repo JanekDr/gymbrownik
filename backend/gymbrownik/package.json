@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@types/node": "^24.6.1",
     "prisma": "^6.16.2"
   },
   "dependencies": {
@@ -8,6 +9,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^11.1.6",
     "@prisma/client": "^6.16.2",
+    "class-transformer": "^0.5.1",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2"
   },

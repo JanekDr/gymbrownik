@@ -12,9 +12,10 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const database_module_1 = require("./database/database.module");
 const user_module_1 = require("./user/user.module");
-const training_plan_module_1 = require("./training-plan/training-plan.module");
 const workout_module_1 = require("./workout/workout.module");
 const exercise_module_1 = require("./exercise/exercise.module");
+const training_week_module_1 = require("./training-week/training-week.module");
+const training_day_module_1 = require("./training-day/training-day.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -23,9 +24,10 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             database_module_1.DatabaseModule,
             user_module_1.UserModule,
-            training_plan_module_1.TrainingPlanModule,
             workout_module_1.WorkoutModule,
             exercise_module_1.ExerciseModule,
+            training_week_module_1.TrainingWeekModule,
+            training_day_module_1.TrainingDayModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

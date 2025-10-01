@@ -6,58 +6,58 @@ export declare class UserController {
     constructor(userService: UserService);
     create(createUserDto: CreateUserDto): Promise<{
         trainingWeeks: {
-            name: string;
             id: number;
+            name: string;
             workoutType: import("@prisma/client").$Enums.WorkoutType;
             restDays: number;
             trainingDays: number;
             userId: number;
         }[];
     } & {
-        name: string;
         id: number;
+        name: string;
         email: string;
     }>;
     findAll(): Promise<({
         trainingWeeks: {
-            name: string;
             id: number;
+            name: string;
             workoutType: import("@prisma/client").$Enums.WorkoutType;
             restDays: number;
             trainingDays: number;
             userId: number;
         }[];
     } & {
-        name: string;
         id: number;
+        name: string;
         email: string;
     })[]>;
     findOne(id: string): Promise<{
         trainingWeeks: {
-            name: string;
             id: number;
+            name: string;
             workoutType: import("@prisma/client").$Enums.WorkoutType;
             restDays: number;
             trainingDays: number;
             userId: number;
         }[];
     } & {
-        name: string;
         id: number;
+        name: string;
         email: string;
     }>;
     update(id: string, updateUserDto: UpdateUserDto): Promise<{
         trainingWeeks: {
-            name: string;
             id: number;
+            name: string;
             workoutType: import("@prisma/client").$Enums.WorkoutType;
             restDays: number;
             trainingDays: number;
             userId: number;
         }[];
     } & {
-        name: string;
         id: number;
+        name: string;
         email: string;
     }>;
     remove(id: string): Promise<void>;
