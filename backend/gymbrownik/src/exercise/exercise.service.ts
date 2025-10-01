@@ -5,27 +5,22 @@ import { UpdateExerciseDto } from './dto/update-exercise.dto';
 
 @Injectable()
 export class ExerciseService {
-    constructor(private readonly prisma: DatabaseService) {}
+    constructor(private prisma: DatabaseService) {}
 
-    async create(workoutId: number, createExerciseDto: CreateExerciseDto) {
-        return this.prisma.exercise.create({
-            data: {
-                ...createExerciseDto,
-                workoutId,
-            },
-        });
+    async create(dto: CreateExerciseDto) {
+        return this.prisma.exercise.create({ data: dto });
     }
 
     async findAll() {
         return this.prisma.exercise.findMany({
-            include: { workout: true },
+            include: { workouts: true }, // opcjonalnie pokazuje w ilu workoutach wystepuje
         });
     }
 
     async findOne(id: number) {
         const exercise = await this.prisma.exercise.findUnique({
             where: { id },
-            include: { workout: true },
+            include: { workouts: true },
         });
 
         if (!exercise) {
@@ -35,13 +30,13 @@ export class ExerciseService {
         return exercise;
     }
 
-    async update(id: number, updateExerciseDto: UpdateExerciseDto) {
+    async update(id: number, dto: UpdateExerciseDto) {
         try {
             return await this.prisma.exercise.update({
                 where: { id },
-                data: updateExerciseDto,
+                data: dto,
             });
-        } catch (e) {
+        } catch {
             throw new NotFoundException(`Exercise with id ${id} not found`);
         }
     }
@@ -51,7 +46,7 @@ export class ExerciseService {
             return await this.prisma.exercise.delete({
                 where: { id },
             });
-        } catch (e) {
+        } catch {
             throw new NotFoundException(`Exercise with id ${id} not found`);
         }
     }

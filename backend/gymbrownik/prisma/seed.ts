@@ -55,7 +55,7 @@ async function main() {
     });
 
     // 3. Użytkownik i tydzień treningowy z dniami
-    const user = await prisma.user.create({
+     await prisma.user.create({
         data: {
             email: 'jan.kowalski@example.com',
             name: 'Jan Kowalski',
