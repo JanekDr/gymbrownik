@@ -26,6 +26,21 @@ enum WorkoutType {
   CUSTOM
 }
 
+enum BodyPart {
+  CHEST // klatka piersiowa
+  BACK // plecy
+  SHOULDERS // barki
+  BICEPS // biceps
+  TRICEPS // triceps
+  FOREARMS // przedramiona
+  ABS // brzuch
+  LEGS // nogi ogólnie
+  QUADRICEPS // czworogłowe uda
+  HAMSTRINGS // dwugłowe uda
+  GLUTES // pośladki
+  CALVES // łydki
+}
+
 model User {
   id            Int            @id @default(autoincrement())
   email         String         @unique
@@ -67,7 +82,7 @@ model Workout {
 model Exercise {
   id       Int               @id @default(autoincrement())
   name     String
-  //mozna dodac opisy, zdj, itp.
+  bodyPart BodyPart
   workouts WorkoutExercise[]
 }
 

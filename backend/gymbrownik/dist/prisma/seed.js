@@ -3,15 +3,33 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 async function main() {
-    const bench = await prisma.exercise.create({ data: { name: 'Bench Press' } });
-    const ohp = await prisma.exercise.create({ data: { name: 'Overhead Press' } });
-    const triceps = await prisma.exercise.create({ data: { name: 'Triceps Pushdown' } });
-    const deadlift = await prisma.exercise.create({ data: { name: 'Deadlift' } });
-    const pullUps = await prisma.exercise.create({ data: { name: 'Pull Ups' } });
-    const row = await prisma.exercise.create({ data: { name: 'Barbell Row' } });
-    const squat = await prisma.exercise.create({ data: { name: 'Squat' } });
-    const legPress = await prisma.exercise.create({ data: { name: 'Leg Press' } });
-    const calf = await prisma.exercise.create({ data: { name: 'Calf Raises' } });
+    const bench = await prisma.exercise.create({
+        data: { name: 'Bench Press', bodyPart: client_1.BodyPart.CHEST },
+    });
+    const ohp = await prisma.exercise.create({
+        data: { name: 'Overhead Press', bodyPart: client_1.BodyPart.SHOULDERS },
+    });
+    const triceps = await prisma.exercise.create({
+        data: { name: 'Triceps Pushdown', bodyPart: client_1.BodyPart.TRICEPS },
+    });
+    const deadlift = await prisma.exercise.create({
+        data: { name: 'Deadlift', bodyPart: client_1.BodyPart.BACK },
+    });
+    const pullUps = await prisma.exercise.create({
+        data: { name: 'Pull Ups', bodyPart: client_1.BodyPart.BACK },
+    });
+    const row = await prisma.exercise.create({
+        data: { name: 'Barbell Row', bodyPart: client_1.BodyPart.BACK },
+    });
+    const squat = await prisma.exercise.create({
+        data: { name: 'Squat', bodyPart: client_1.BodyPart.LEGS },
+    });
+    const legPress = await prisma.exercise.create({
+        data: { name: 'Leg Press', bodyPart: client_1.BodyPart.QUADRICEPS },
+    });
+    const calf = await prisma.exercise.create({
+        data: { name: 'Calf Raises', bodyPart: client_1.BodyPart.CALVES },
+    });
     const pushWorkout = await prisma.workout.create({ data: { name: 'Push Day' } });
     const pullWorkout = await prisma.workout.create({ data: { name: 'Pull Day' } });
     const legWorkout = await prisma.workout.create({ data: { name: 'Leg Day' } });
@@ -51,7 +69,7 @@ async function main() {
             },
         },
     });
-    console.log('✅ Seed completed');
+    console.log('✅ Seed completed.');
 }
 main()
     .catch((error) => {

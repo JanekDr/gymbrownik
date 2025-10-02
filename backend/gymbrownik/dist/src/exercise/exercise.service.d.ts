@@ -6,6 +6,7 @@ export declare class ExerciseService {
     constructor(prisma: DatabaseService);
     create(dto: CreateExerciseDto): Promise<{
         name: string;
+        bodyPart: import("@prisma/client").$Enums.BodyPart;
         id: number;
     }>;
     findAll(): Promise<({
@@ -20,6 +21,7 @@ export declare class ExerciseService {
         }[];
     } & {
         name: string;
+        bodyPart: import("@prisma/client").$Enums.BodyPart;
         id: number;
     })[]>;
     findOne(id: number): Promise<{
@@ -34,14 +36,17 @@ export declare class ExerciseService {
         }[];
     } & {
         name: string;
+        bodyPart: import("@prisma/client").$Enums.BodyPart;
         id: number;
     }>;
     update(id: number, dto: UpdateExerciseDto): Promise<{
         name: string;
+        bodyPart: import("@prisma/client").$Enums.BodyPart;
         id: number;
     }>;
     remove(id: number): Promise<{
         name: string;
+        bodyPart: import("@prisma/client").$Enums.BodyPart;
         id: number;
     }>;
 }

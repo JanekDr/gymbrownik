@@ -8,6 +8,7 @@ export declare class WorkoutController {
         exercises: ({
             exercise: {
                 name: string;
+                bodyPart: import("@prisma/client").$Enums.BodyPart;
                 id: number;
             };
         } & {
@@ -33,6 +34,7 @@ export declare class WorkoutController {
         exercises: ({
             exercise: {
                 name: string;
+                bodyPart: import("@prisma/client").$Enums.BodyPart;
                 id: number;
             };
         } & {
@@ -58,6 +60,7 @@ export declare class WorkoutController {
         exercises: ({
             exercise: {
                 name: string;
+                bodyPart: import("@prisma/client").$Enums.BodyPart;
                 id: number;
             };
         } & {
@@ -83,6 +86,7 @@ export declare class WorkoutController {
         exercises: ({
             exercise: {
                 name: string;
+                bodyPart: import("@prisma/client").$Enums.BodyPart;
                 id: number;
             };
         } & {
