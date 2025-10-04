@@ -16,6 +16,7 @@ const workout_module_1 = require("./workout/workout.module");
 const exercise_module_1 = require("./exercise/exercise.module");
 const training_week_module_1 = require("./training-week/training-week.module");
 const training_day_module_1 = require("./training-day/training-day.module");
+const workout_exercise_module_1 = require("./workout-exercise/workout-exercise.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -28,6 +29,7 @@ exports.AppModule = AppModule = __decorate([
             exercise_module_1.ExerciseModule,
             training_week_module_1.TrainingWeekModule,
             training_day_module_1.TrainingDayModule,
+            workout_exercise_module_1.WorkoutExerciseModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

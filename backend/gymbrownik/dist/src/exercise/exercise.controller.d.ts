@@ -6,7 +6,7 @@ export declare class ExerciseController {
     constructor(exerciseService: ExerciseService);
     create(createExerciseDto: CreateExerciseDto): Promise<{
         name: string;
-        bodyPart: import("@prisma/client").$Enums.BodyPart;
+        bodyPart: import("@prisma/client").$Enums.BodyPart | null;
         id: number;
     }>;
     findAll(): Promise<({
@@ -18,10 +18,11 @@ export declare class ExerciseController {
             reps: number;
             weight: import("@prisma/client/runtime/library").Decimal;
             rest: number | null;
+            history: import("@prisma/client/runtime/library").JsonValue | null;
         }[];
     } & {
         name: string;
-        bodyPart: import("@prisma/client").$Enums.BodyPart;
+        bodyPart: import("@prisma/client").$Enums.BodyPart | null;
         id: number;
     })[]>;
     findOne(id: string): Promise<{
@@ -33,20 +34,21 @@ export declare class ExerciseController {
             reps: number;
             weight: import("@prisma/client/runtime/library").Decimal;
             rest: number | null;
+            history: import("@prisma/client/runtime/library").JsonValue | null;
         }[];
     } & {
         name: string;
-        bodyPart: import("@prisma/client").$Enums.BodyPart;
+        bodyPart: import("@prisma/client").$Enums.BodyPart | null;
         id: number;
     }>;
     update(id: string, updateExerciseDto: UpdateExerciseDto): Promise<{
         name: string;
-        bodyPart: import("@prisma/client").$Enums.BodyPart;
+        bodyPart: import("@prisma/client").$Enums.BodyPart | null;
         id: number;
     }>;
     remove(id: string): Promise<{
         name: string;
-        bodyPart: import("@prisma/client").$Enums.BodyPart;
+        bodyPart: import("@prisma/client").$Enums.BodyPart | null;
         id: number;
     }>;
 }

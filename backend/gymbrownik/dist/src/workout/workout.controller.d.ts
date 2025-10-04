@@ -8,7 +8,7 @@ export declare class WorkoutController {
         exercises: ({
             exercise: {
                 name: string;
-                bodyPart: import("@prisma/client").$Enums.BodyPart;
+                bodyPart: import("@prisma/client").$Enums.BodyPart | null;
                 id: number;
             };
         } & {
@@ -19,6 +19,7 @@ export declare class WorkoutController {
             reps: number;
             weight: import("@prisma/client/runtime/library").Decimal;
             rest: number | null;
+            history: import("@prisma/client/runtime/library").JsonValue | null;
         })[];
         days: {
             id: number;
@@ -34,7 +35,7 @@ export declare class WorkoutController {
         exercises: ({
             exercise: {
                 name: string;
-                bodyPart: import("@prisma/client").$Enums.BodyPart;
+                bodyPart: import("@prisma/client").$Enums.BodyPart | null;
                 id: number;
             };
         } & {
@@ -45,6 +46,7 @@ export declare class WorkoutController {
             reps: number;
             weight: import("@prisma/client/runtime/library").Decimal;
             rest: number | null;
+            history: import("@prisma/client/runtime/library").JsonValue | null;
         })[];
         days: {
             id: number;
@@ -60,7 +62,7 @@ export declare class WorkoutController {
         exercises: ({
             exercise: {
                 name: string;
-                bodyPart: import("@prisma/client").$Enums.BodyPart;
+                bodyPart: import("@prisma/client").$Enums.BodyPart | null;
                 id: number;
             };
         } & {
@@ -71,6 +73,7 @@ export declare class WorkoutController {
             reps: number;
             weight: import("@prisma/client/runtime/library").Decimal;
             rest: number | null;
+            history: import("@prisma/client/runtime/library").JsonValue | null;
         })[];
         days: {
             id: number;
@@ -86,7 +89,7 @@ export declare class WorkoutController {
         exercises: ({
             exercise: {
                 name: string;
-                bodyPart: import("@prisma/client").$Enums.BodyPart;
+                bodyPart: import("@prisma/client").$Enums.BodyPart | null;
                 id: number;
             };
         } & {
@@ -97,6 +100,7 @@ export declare class WorkoutController {
             reps: number;
             weight: import("@prisma/client/runtime/library").Decimal;
             rest: number | null;
+            history: import("@prisma/client/runtime/library").JsonValue | null;
         })[];
         days: {
             id: number;

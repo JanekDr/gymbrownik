@@ -22,7 +22,7 @@ async function main() {
         data: { name: 'Barbell Row', bodyPart: client_1.BodyPart.BACK },
     });
     const squat = await prisma.exercise.create({
-        data: { name: 'Squat', bodyPart: client_1.BodyPart.LEGS },
+        data: { name: 'Squat', bodyPart: client_1.BodyPart.QUADRICEPS },
     });
     const legPress = await prisma.exercise.create({
         data: { name: 'Leg Press', bodyPart: client_1.BodyPart.QUADRICEPS },
@@ -69,7 +69,7 @@ async function main() {
             },
         },
     });
-    console.log('✅ Seed completed.');
+    console.log(' Seed completed.');
 }
 main()
     .catch((error) => {

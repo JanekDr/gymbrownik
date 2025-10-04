@@ -3,7 +3,6 @@ import { PrismaClient, WorkoutType, BodyPart } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-    // 📌 katalog ćwiczeń z przypisaną partią
     const bench = await prisma.exercise.create({
         data: { name: 'Bench Press', bodyPart: BodyPart.CHEST },
     });
@@ -23,7 +22,7 @@ async function main() {
         data: { name: 'Barbell Row', bodyPart: BodyPart.BACK },
     });
     const squat = await prisma.exercise.create({
-        data: { name: 'Squat', bodyPart: BodyPart.LEGS },
+        data: { name: 'Squat', bodyPart: BodyPart.QUADRICEPS }, 
     });
     const legPress = await prisma.exercise.create({
         data: { name: 'Leg Press', bodyPart: BodyPart.QUADRICEPS },
@@ -32,12 +31,12 @@ async function main() {
         data: { name: 'Calf Raises', bodyPart: BodyPart.CALVES },
     });
 
-    // 📌 workouty
+
     const pushWorkout = await prisma.workout.create({ data: { name: 'Push Day' } });
     const pullWorkout = await prisma.workout.create({ data: { name: 'Pull Day' } });
     const legWorkout = await prisma.workout.create({ data: { name: 'Leg Day' } });
 
-    // 📌 przypisanie ćwiczeń do workoutów
+
     await prisma.workoutExercise.createMany({
         data: [
             { workoutId: pushWorkout.id, exerciseId: bench.id, series: 4, reps: 8, weight: 80.0, rest: 120 },
@@ -54,7 +53,7 @@ async function main() {
         ],
     });
 
-    // 📌 użytkownik + tydzień treningowy
+ 
     await prisma.user.create({
         data: {
             email: 'jan.kowalski@example.com',
@@ -79,7 +78,7 @@ async function main() {
         },
     });
 
-    console.log('✅ Seed completed.');
+    console.log(' Seed completed.');
 }
 
 main()
