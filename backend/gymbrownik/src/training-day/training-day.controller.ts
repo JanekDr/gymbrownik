@@ -39,4 +39,10 @@ export class TrainingDayController {
   remove(@Param('id') id: string) {
     return this.trainingDayService.remove(+id);
   }
+
+  @Get(':id/volume-balance')
+  analyzeVolumeBalanceForDay(@Param('id') id: string) {
+  return this.trainingDayService.analyzeVolumeBalanceForDay(+id);
+}
+
 }

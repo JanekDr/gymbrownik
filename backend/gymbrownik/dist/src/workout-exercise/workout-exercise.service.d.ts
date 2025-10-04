@@ -6,99 +6,99 @@ export declare class WorkoutExerciseService {
     constructor(database: DatabaseService);
     private getOrThrow;
     create(dto: CreateWorkoutExerciseDto): Promise<{
-        workout: {
-            id: number;
-            name: string;
-        };
         exercise: {
-            id: number;
             name: string;
+            id: number;
+        };
+        workout: {
+            name: string;
+            id: number;
         };
     } & {
+        id: number;
+        workoutId: number;
+        exerciseId: number;
         series: number;
         reps: number;
         weight: import("@prisma/client/runtime/library").Decimal;
         rest: number | null;
         history: import("@prisma/client/runtime/library").JsonValue | null;
-        id: number;
-        workoutId: number;
-        exerciseId: number;
     }>;
     findAll(): Promise<({
-        workout: {
-            id: number;
-            name: string;
-        };
         exercise: {
-            id: number;
             name: string;
+            id: number;
+        };
+        workout: {
+            name: string;
+            id: number;
         };
     } & {
+        id: number;
+        workoutId: number;
+        exerciseId: number;
         series: number;
         reps: number;
         weight: import("@prisma/client/runtime/library").Decimal;
         rest: number | null;
         history: import("@prisma/client/runtime/library").JsonValue | null;
-        id: number;
-        workoutId: number;
-        exerciseId: number;
     })[]>;
     findOne(id: number): Promise<{
-        workout: {
-            id: number;
-            name: string;
-        };
         exercise: {
-            id: number;
             name: string;
+            id: number;
+        };
+        workout: {
+            name: string;
+            id: number;
         };
     } & {
+        id: number;
+        workoutId: number;
+        exerciseId: number;
         series: number;
         reps: number;
         weight: import("@prisma/client/runtime/library").Decimal;
         rest: number | null;
         history: import("@prisma/client/runtime/library").JsonValue | null;
-        id: number;
-        workoutId: number;
-        exerciseId: number;
     }>;
     update(id: number, dto: UpdateWorkoutExerciseDto): Promise<{
-        workout: {
-            id: number;
-            name: string;
-        };
         exercise: {
-            id: number;
             name: string;
+            id: number;
+        };
+        workout: {
+            name: string;
+            id: number;
         };
     } & {
+        id: number;
+        workoutId: number;
+        exerciseId: number;
         series: number;
         reps: number;
         weight: import("@prisma/client/runtime/library").Decimal;
         rest: number | null;
         history: import("@prisma/client/runtime/library").JsonValue | null;
-        id: number;
-        workoutId: number;
-        exerciseId: number;
     }>;
     updateStats(id: number, reps: number, weight: number): Promise<{
-        workout: {
-            id: number;
-            name: string;
-        };
         exercise: {
-            id: number;
             name: string;
+            id: number;
+        };
+        workout: {
+            name: string;
+            id: number;
         };
     } & {
+        id: number;
+        workoutId: number;
+        exerciseId: number;
         series: number;
         reps: number;
         weight: import("@prisma/client/runtime/library").Decimal;
         rest: number | null;
         history: import("@prisma/client/runtime/library").JsonValue | null;
-        id: number;
-        workoutId: number;
-        exerciseId: number;
     }>;
     getHistory(id: number): Promise<{
         message: string;

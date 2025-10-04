@@ -81,5 +81,23 @@ export declare class TrainingDayService {
         workoutId: number;
         trainingWeekId: number;
     }>;
+    analyzeVolumeBalanceForDay(id: number): Promise<{
+        trainingDayId: number;
+        workoutName: string;
+        message: string;
+        summary: Record<string, number>;
+        details?: undefined;
+    } | {
+        trainingDayId: number;
+        workoutName: string;
+        message: string;
+        summary: Record<string, number>;
+        details: {
+            comparison: string;
+            difference: number;
+            weakerPart: string;
+            exercises: string[];
+        }[];
+    }>;
     remove(id: number): Promise<void>;
 }

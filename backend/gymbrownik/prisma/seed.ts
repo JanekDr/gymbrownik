@@ -40,6 +40,7 @@ async function main() {
     await prisma.workoutExercise.createMany({
         data: [
             { workoutId: pushWorkout.id, exerciseId: bench.id, series: 4, reps: 8, weight: 80.0, rest: 120 },
+            { workoutId: pushWorkout.id, exerciseId: deadlift.id, series: 4, reps: 6, weight: 100.0, rest: 180 },
             { workoutId: pushWorkout.id, exerciseId: ohp.id, series: 3, reps: 10, weight: 40.0, rest: 90 },
             { workoutId: pushWorkout.id, exerciseId: triceps.id, series: 3, reps: 12, weight: 25.0, rest: 60 },
 

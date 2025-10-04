@@ -37,6 +37,9 @@ let TrainingDayController = class TrainingDayController {
     remove(id) {
         return this.trainingDayService.remove(+id);
     }
+    analyzeVolumeBalanceForDay(id) {
+        return this.trainingDayService.analyzeVolumeBalanceForDay(+id);
+    }
 };
 exports.TrainingDayController = TrainingDayController;
 __decorate([
@@ -74,6 +77,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], TrainingDayController.prototype, "remove", null);
+__decorate([
+    (0, common_1.Get)(':id/volume-balance'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], TrainingDayController.prototype, "analyzeVolumeBalanceForDay", null);
 exports.TrainingDayController = TrainingDayController = __decorate([
     (0, common_1.Controller)('training-day'),
     __metadata("design:paramtypes", [training_day_service_1.TrainingDayService])
