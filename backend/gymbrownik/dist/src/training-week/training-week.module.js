@@ -11,13 +11,14 @@ const common_1 = require("@nestjs/common");
 const training_week_service_1 = require("./training-week.service");
 const training_week_controller_1 = require("./training-week.controller");
 const database_module_1 = require("../database/database.module");
+const auth_module_1 = require("../auth/auth.module");
 let TrainingWeekModule = class TrainingWeekModule {
 };
 exports.TrainingWeekModule = TrainingWeekModule;
 exports.TrainingWeekModule = TrainingWeekModule = __decorate([
     (0, common_1.Module)({
         controllers: [training_week_controller_1.TrainingWeekController],
-        imports: [database_module_1.DatabaseModule],
+        imports: [database_module_1.DatabaseModule, auth_module_1.AuthModule],
         providers: [training_week_service_1.TrainingWeekService],
     })
 ], TrainingWeekModule);

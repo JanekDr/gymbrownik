@@ -11,13 +11,14 @@ const common_1 = require("@nestjs/common");
 const exercise_service_1 = require("./exercise.service");
 const exercise_controller_1 = require("./exercise.controller");
 const database_module_1 = require("../database/database.module");
+const auth_module_1 = require("../auth/auth.module");
 let ExerciseModule = class ExerciseModule {
 };
 exports.ExerciseModule = ExerciseModule;
 exports.ExerciseModule = ExerciseModule = __decorate([
     (0, common_1.Module)({
         controllers: [exercise_controller_1.ExerciseController],
-        imports: [database_module_1.DatabaseModule],
+        imports: [database_module_1.DatabaseModule, auth_module_1.AuthModule],
         providers: [exercise_service_1.ExerciseService],
     })
 ], ExerciseModule);

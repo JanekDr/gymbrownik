@@ -17,6 +17,8 @@ const common_1 = require("@nestjs/common");
 const training_day_service_1 = require("./training-day.service");
 const create_training_day_dto_1 = require("./dto/create-training-day.dto");
 const update_training_day_dto_1 = require("./dto/update-training-day.dto");
+const passport_1 = require("@nestjs/passport");
+const owner_or_admin_guard_1 = require("../auth/owner-or-admin.guard");
 let TrainingDayController = class TrainingDayController {
     trainingDayService;
     constructor(trainingDayService) {
@@ -63,6 +65,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], TrainingDayController.prototype, "findOne", null);
 __decorate([
+    (0, common_1.UseGuards)(owner_or_admin_guard_1.OwnerOrAdminGuard),
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -71,6 +74,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], TrainingDayController.prototype, "update", null);
 __decorate([
+    (0, common_1.UseGuards)(owner_or_admin_guard_1.OwnerOrAdminGuard),
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -86,6 +90,7 @@ __decorate([
 ], TrainingDayController.prototype, "analyzeVolumeBalanceForDay", null);
 exports.TrainingDayController = TrainingDayController = __decorate([
     (0, common_1.Controller)('training-day'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     __metadata("design:paramtypes", [training_day_service_1.TrainingDayService])
 ], TrainingDayController);
 //# sourceMappingURL=training-day.controller.js.map

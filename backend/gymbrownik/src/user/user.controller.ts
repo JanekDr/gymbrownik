@@ -1,17 +1,22 @@
 import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
+    Controller,
+    Get,
+    Post,
+    Body,
+    Patch,
+    Param,
+    Delete,
+    UseGuards,
 } from "@nestjs/common";
+import { AuthGuard } from '@nestjs/passport';
+import { OwnerOrAdminGuard } from 'src/auth/owner-or-admin.guard';
 import { UserService } from "./user.service";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
+import {Resource} from "../auth/decorators/resource.decorator";
 
 @Controller("user")
+@UseGuards(AuthGuard('jwt'))
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
@@ -30,11 +35,15 @@ export class UserController {
     return this.userService.findOne(+id);
   }
 
+  @UseGuards(OwnerOrAdminGuard)
+  @Resource('user')
   @Patch(":id")
   update(@Param("id") id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.userService.update(+id, updateUserDto);
   }
 
+  @Resource('user')
+  @UseGuards(OwnerOrAdminGuard)
   @Delete(":id")
   remove(@Param("id") id: string) {
     return this.userService.remove(+id);

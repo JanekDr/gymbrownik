@@ -11,13 +11,14 @@ const common_1 = require("@nestjs/common");
 const workout_service_1 = require("./workout.service");
 const workout_controller_1 = require("./workout.controller");
 const database_module_1 = require("../database/database.module");
+const auth_module_1 = require("../auth/auth.module");
 let WorkoutModule = class WorkoutModule {
 };
 exports.WorkoutModule = WorkoutModule;
 exports.WorkoutModule = WorkoutModule = __decorate([
     (0, common_1.Module)({
         controllers: [workout_controller_1.WorkoutController],
-        imports: [database_module_1.DatabaseModule],
+        imports: [database_module_1.DatabaseModule, auth_module_1.AuthModule],
         providers: [workout_service_1.WorkoutService],
     })
 ], WorkoutModule);

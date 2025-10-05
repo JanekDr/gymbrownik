@@ -18,6 +18,8 @@ const workout_exercise_service_1 = require("./workout-exercise.service");
 const create_workout_exercise_dto_1 = require("./dto/create-workout-exercise.dto");
 const update_workout_exercise_dto_1 = require("./dto/update-workout-exercise.dto");
 const update_stats_dto_1 = require("./dto/update-stats.dto");
+const passport_1 = require("@nestjs/passport");
+const owner_or_admin_guard_1 = require("../auth/owner-or-admin.guard");
 let WorkoutExerciseController = class WorkoutExerciseController {
     service;
     constructor(service) {
@@ -67,6 +69,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], WorkoutExerciseController.prototype, "findOne", null);
 __decorate([
+    (0, common_1.UseGuards)(owner_or_admin_guard_1.OwnerOrAdminGuard),
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -75,6 +78,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], WorkoutExerciseController.prototype, "update", null);
 __decorate([
+    (0, common_1.UseGuards)(owner_or_admin_guard_1.OwnerOrAdminGuard),
     (0, common_1.Patch)(':id/stats'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -83,6 +87,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], WorkoutExerciseController.prototype, "updateStats", null);
 __decorate([
+    (0, common_1.UseGuards)(owner_or_admin_guard_1.OwnerOrAdminGuard),
     (0, common_1.Get)(':id/history'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -90,6 +95,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], WorkoutExerciseController.prototype, "getHistory", null);
 __decorate([
+    (0, common_1.UseGuards)(owner_or_admin_guard_1.OwnerOrAdminGuard),
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -98,6 +104,7 @@ __decorate([
 ], WorkoutExerciseController.prototype, "remove", null);
 exports.WorkoutExerciseController = WorkoutExerciseController = __decorate([
     (0, common_1.Controller)('workout-exercise'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     __metadata("design:paramtypes", [workout_exercise_service_1.WorkoutExerciseService])
 ], WorkoutExerciseController);
 //# sourceMappingURL=workout-exercise.controller.js.map

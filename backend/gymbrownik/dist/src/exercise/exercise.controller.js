@@ -17,6 +17,8 @@ const common_1 = require("@nestjs/common");
 const exercise_service_1 = require("./exercise.service");
 const create_exercise_dto_1 = require("./dto/create-exercise.dto");
 const update_exercise_dto_1 = require("./dto/update-exercise.dto");
+const owner_or_admin_guard_1 = require("../auth/owner-or-admin.guard");
+const passport_1 = require("@nestjs/passport");
 let ExerciseController = class ExerciseController {
     exerciseService;
     constructor(exerciseService) {
@@ -60,6 +62,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ExerciseController.prototype, "findOne", null);
 __decorate([
+    (0, common_1.UseGuards)(owner_or_admin_guard_1.OwnerOrAdminGuard),
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -68,6 +71,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ExerciseController.prototype, "update", null);
 __decorate([
+    (0, common_1.UseGuards)(owner_or_admin_guard_1.OwnerOrAdminGuard),
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -76,6 +80,7 @@ __decorate([
 ], ExerciseController.prototype, "remove", null);
 exports.ExerciseController = ExerciseController = __decorate([
     (0, common_1.Controller)('exercise'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     __metadata("design:paramtypes", [exercise_service_1.ExerciseService])
 ], ExerciseController);
 //# sourceMappingURL=exercise.controller.js.map

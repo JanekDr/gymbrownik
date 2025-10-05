@@ -14,9 +14,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
+const passport_1 = require("@nestjs/passport");
+const owner_or_admin_guard_1 = require("../auth/owner-or-admin.guard");
 const user_service_1 = require("./user.service");
 const create_user_dto_1 = require("./dto/create-user.dto");
 const update_user_dto_1 = require("./dto/update-user.dto");
+const resource_decorator_1 = require("../auth/decorators/resource.decorator");
 let UserController = class UserController {
     userService;
     constructor(userService) {
@@ -60,6 +63,8 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "findOne", null);
 __decorate([
+    (0, common_1.UseGuards)(owner_or_admin_guard_1.OwnerOrAdminGuard),
+    (0, resource_decorator_1.Resource)('user'),
     (0, common_1.Patch)(":id"),
     __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
@@ -68,6 +73,8 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "update", null);
 __decorate([
+    (0, resource_decorator_1.Resource)('user'),
+    (0, common_1.UseGuards)(owner_or_admin_guard_1.OwnerOrAdminGuard),
     (0, common_1.Delete)(":id"),
     __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
@@ -76,6 +83,7 @@ __decorate([
 ], UserController.prototype, "remove", null);
 exports.UserController = UserController = __decorate([
     (0, common_1.Controller)("user"),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     __metadata("design:paramtypes", [user_service_1.UserService])
 ], UserController);
 //# sourceMappingURL=user.controller.js.map
