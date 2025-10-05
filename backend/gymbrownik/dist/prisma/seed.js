@@ -51,6 +51,7 @@ async function main() {
         data: {
             email: 'jan.kowalski@example.com',
             name: 'Jan Kowalski',
+            password: 'test123',
             trainingWeeks: {
                 create: [
                     {

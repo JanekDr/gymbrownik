@@ -27,23 +27,25 @@ enum WorkoutType {
 }
 
 enum BodyPart {
-  CHEST 
-  BACK 
-  SHOULDERS 
-  BICEPS 
-  TRICEPS 
-  FOREARMS 
-  ABS 
-  QUADRICEPS 
-  HAMSTRINGS 
-  GLUTES 
-  CALVES 
+  CHEST
+  BACK
+  SHOULDERS
+  BICEPS
+  TRICEPS
+  FOREARMS
+  ABS
+  QUADRICEPS
+  HAMSTRINGS
+  GLUTES
+  CALVES
 }
 
 model User {
   id            Int            @id @default(autoincrement())
   email         String         @unique
   name          String
+  password      String
+  authRole      AuthRole       @default(USER)
   trainingWeeks TrainingWeek[]
 }
 

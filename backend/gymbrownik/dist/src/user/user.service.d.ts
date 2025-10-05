@@ -18,6 +18,8 @@ export declare class UserService {
         name: string;
         id: number;
         email: string;
+        password: string;
+        authRole: import("@prisma/client").$Enums.AuthRole;
     }>;
     findAll(): Promise<({
         trainingWeeks: {
@@ -32,6 +34,8 @@ export declare class UserService {
         name: string;
         id: number;
         email: string;
+        password: string;
+        authRole: import("@prisma/client").$Enums.AuthRole;
     })[]>;
     findOne(id: number): Promise<{
         trainingWeeks: {
@@ -46,6 +50,8 @@ export declare class UserService {
         name: string;
         id: number;
         email: string;
+        password: string;
+        authRole: import("@prisma/client").$Enums.AuthRole;
     }>;
     update(id: number, dto: UpdateUserDto): Promise<{
         trainingWeeks: {
@@ -60,6 +66,8 @@ export declare class UserService {
         name: string;
         id: number;
         email: string;
+        password: string;
+        authRole: import("@prisma/client").$Enums.AuthRole;
     }>;
     remove(id: number): Promise<void>;
 }

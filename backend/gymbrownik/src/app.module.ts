@@ -8,6 +8,7 @@ import { ExerciseModule } from './exercise/exercise.module';
 import { TrainingWeekModule } from './training-week/training-week.module';
 import { TrainingDayModule } from './training-day/training-day.module';
 import { WorkoutExerciseModule } from './workout-exercise/workout-exercise.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { WorkoutExerciseModule } from './workout-exercise/workout-exercise.modul
     TrainingWeekModule,
     TrainingDayModule,
     WorkoutExerciseModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

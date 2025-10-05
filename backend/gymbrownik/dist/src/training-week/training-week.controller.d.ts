@@ -15,6 +15,8 @@ export declare class TrainingWeekController {
             name: string;
             id: number;
             email: string;
+            password: string;
+            authRole: import("@prisma/client").$Enums.AuthRole;
         };
     } & {
         name: string;
@@ -40,6 +42,8 @@ export declare class TrainingWeekController {
             name: string;
             id: number;
             email: string;
+            password: string;
+            authRole: import("@prisma/client").$Enums.AuthRole;
         };
     } & {
         name: string;
@@ -65,6 +69,8 @@ export declare class TrainingWeekController {
             name: string;
             id: number;
             email: string;
+            password: string;
+            authRole: import("@prisma/client").$Enums.AuthRole;
         };
     } & {
         name: string;
@@ -90,6 +96,8 @@ export declare class TrainingWeekController {
             name: string;
             id: number;
             email: string;
+            password: string;
+            authRole: import("@prisma/client").$Enums.AuthRole;
         };
     } & {
         name: string;
