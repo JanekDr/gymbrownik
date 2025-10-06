@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateTrainingDayDto = void 0;
 const class_validator_1 = require("class-validator");
+const swagger_1 = require("@nestjs/swagger");
 class CreateTrainingDayDto {
     dayOfWeek;
     trainingWeekId;
@@ -18,16 +19,30 @@ class CreateTrainingDayDto {
 }
 exports.CreateTrainingDayDto = CreateTrainingDayDto;
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Day of the week for the training session (1 = Monday, 7 = Sunday)',
+        example: 3,
+        minimum: 1,
+        maximum: 7,
+    }),
     (0, class_validator_1.IsInt)(),
     (0, class_validator_1.Min)(1),
     (0, class_validator_1.Max)(7),
     __metadata("design:type", Number)
 ], CreateTrainingDayDto.prototype, "dayOfWeek", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'ID of the training week this day belongs to',
+        example: 1,
+    }),
     (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
 ], CreateTrainingDayDto.prototype, "trainingWeekId", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'ID of the workout assigned to this day',
+        example: 5,
+    }),
     (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
 ], CreateTrainingDayDto.prototype, "workoutId", void 0);

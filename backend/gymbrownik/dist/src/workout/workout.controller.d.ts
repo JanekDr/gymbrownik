@@ -58,7 +58,7 @@ export declare class WorkoutController {
         name: string;
         id: number;
     })[]>;
-    findOne(id: string): Promise<{
+    findOne(id: number): Promise<{
         exercises: ({
             exercise: {
                 name: string;
@@ -85,7 +85,7 @@ export declare class WorkoutController {
         name: string;
         id: number;
     }>;
-    update(id: string, updateDto: UpdateWorkoutDto): Promise<{
+    update(id: number, updateDto: UpdateWorkoutDto): Promise<{
         exercises: ({
             exercise: {
                 name: string;
@@ -112,7 +112,5 @@ export declare class WorkoutController {
         name: string;
         id: number;
     }>;
-    remove(id: string): Promise<{
-        message: string;
-    }>;
+    remove(id: number): Promise<void>;
 }

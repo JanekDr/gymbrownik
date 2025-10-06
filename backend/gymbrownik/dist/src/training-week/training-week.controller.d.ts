@@ -53,7 +53,7 @@ export declare class TrainingWeekController {
         trainingDays: number;
         userId: number;
     })[]>;
-    findOne(id: string): Promise<{
+    findOne(id: number): Promise<{
         days: ({
             workout: {
                 name: string;
@@ -80,7 +80,7 @@ export declare class TrainingWeekController {
         trainingDays: number;
         userId: number;
     }>;
-    update(id: string, updateDto: UpdateTrainingWeekDto): Promise<{
+    update(id: number, updateDto: UpdateTrainingWeekDto): Promise<{
         days: ({
             workout: {
                 name: string;
@@ -107,7 +107,5 @@ export declare class TrainingWeekController {
         trainingDays: number;
         userId: number;
     }>;
-    remove(id: string): Promise<{
-        message: string;
-    }>;
+    remove(id: number): Promise<void>;
 }

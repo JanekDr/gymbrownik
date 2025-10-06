@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateWorkoutDto = exports.WorkoutExerciseInput = void 0;
 const class_validator_1 = require("class-validator");
 const class_transformer_1 = require("class-transformer");
+const swagger_1 = require("@nestjs/swagger");
 class WorkoutExerciseInput {
     exerciseId;
     series;
@@ -21,22 +22,48 @@ class WorkoutExerciseInput {
 }
 exports.WorkoutExerciseInput = WorkoutExerciseInput;
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'ID of the exercise associated with this workout',
+        example: 3,
+    }),
     (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
 ], WorkoutExerciseInput.prototype, "exerciseId", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Number of sets for this exercise',
+        example: 4,
+        minimum: 1,
+    }),
     (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(1),
     __metadata("design:type", Number)
 ], WorkoutExerciseInput.prototype, "series", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Number of repetitions per set',
+        example: 10,
+        minimum: 1,
+    }),
     (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(1),
     __metadata("design:type", Number)
 ], WorkoutExerciseInput.prototype, "reps", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Weight used for the exercise (in kilograms)',
+        example: 80.5,
+        minimum: 0,
+    }),
     (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.Min)(0),
     __metadata("design:type", Number)
 ], WorkoutExerciseInput.prototype, "weight", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({
+        description: 'Rest time between sets (in seconds)',
+        example: 90,
+    }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
@@ -47,11 +74,19 @@ class CreateWorkoutDto {
 }
 exports.CreateWorkoutDto = CreateWorkoutDto;
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Name of the workout',
+        example: 'Push Day',
+    }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], CreateWorkoutDto.prototype, "name", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({
+        description: 'List of exercises included in the workout',
+        type: [WorkoutExerciseInput],
+    }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsArray)(),
     (0, class_validator_1.ValidateNested)({ each: true }),

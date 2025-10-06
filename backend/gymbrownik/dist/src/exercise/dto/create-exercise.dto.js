@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateExerciseDto = void 0;
 const class_validator_1 = require("class-validator");
+const swagger_1 = require("@nestjs/swagger");
 const client_1 = require("@prisma/client");
 class CreateExerciseDto {
     name;
@@ -18,11 +19,20 @@ class CreateExerciseDto {
 }
 exports.CreateExerciseDto = CreateExerciseDto;
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Name of the exercise (e.g., Bench Press, Squat, Deadlift)',
+        example: 'Bench Press',
+    }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], CreateExerciseDto.prototype, "name", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Body part targeted by the exercise',
+        enum: client_1.BodyPart,
+        example: client_1.BodyPart.CHEST,
+    }),
     (0, class_validator_1.IsEnum)(client_1.BodyPart),
     __metadata("design:type", String)
 ], CreateExerciseDto.prototype, "bodyPart", void 0);

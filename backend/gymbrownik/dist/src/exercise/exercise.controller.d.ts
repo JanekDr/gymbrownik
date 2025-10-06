@@ -25,7 +25,7 @@ export declare class ExerciseController {
         bodyPart: import("@prisma/client").$Enums.BodyPart | null;
         id: number;
     })[]>;
-    findOne(id: string): Promise<{
+    findOne(id: number): Promise<{
         workouts: {
             id: number;
             workoutId: number;
@@ -41,14 +41,10 @@ export declare class ExerciseController {
         bodyPart: import("@prisma/client").$Enums.BodyPart | null;
         id: number;
     }>;
-    update(id: string, updateExerciseDto: UpdateExerciseDto): Promise<{
+    update(id: number, updateExerciseDto: UpdateExerciseDto): Promise<{
         name: string;
         bodyPart: import("@prisma/client").$Enums.BodyPart | null;
         id: number;
     }>;
-    remove(id: string): Promise<{
-        name: string;
-        bodyPart: import("@prisma/client").$Enums.BodyPart | null;
-        id: number;
-    }>;
+    remove(id: number): Promise<void>;
 }

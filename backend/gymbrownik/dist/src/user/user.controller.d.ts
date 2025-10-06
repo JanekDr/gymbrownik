@@ -1,6 +1,6 @@
-import { UserService } from "./user.service";
-import { CreateUserDto } from "./dto/create-user.dto";
-import { UpdateUserDto } from "./dto/update-user.dto";
+import { UserService } from './user.service';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 export declare class UserController {
     private readonly userService;
     constructor(userService: UserService);
@@ -36,7 +36,7 @@ export declare class UserController {
         password: string;
         authRole: import("@prisma/client").$Enums.AuthRole;
     })[]>;
-    findOne(id: string): Promise<{
+    findOne(id: number): Promise<{
         trainingWeeks: {
             name: string;
             id: number;
@@ -52,7 +52,7 @@ export declare class UserController {
         password: string;
         authRole: import("@prisma/client").$Enums.AuthRole;
     }>;
-    update(id: string, updateUserDto: UpdateUserDto): Promise<{
+    update(id: number, updateUserDto: UpdateUserDto): Promise<{
         trainingWeeks: {
             name: string;
             id: number;
@@ -68,5 +68,5 @@ export declare class UserController {
         password: string;
         authRole: import("@prisma/client").$Enums.AuthRole;
     }>;
-    remove(id: string): Promise<void>;
+    remove(id: number): Promise<void>;
 }

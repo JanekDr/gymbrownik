@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateTrainingWeekDto = void 0;
 const class_validator_1 = require("class-validator");
+const swagger_1 = require("@nestjs/swagger");
 const client_1 = require("@prisma/client");
 class CreateTrainingWeekDto {
     name;
@@ -21,23 +22,48 @@ class CreateTrainingWeekDto {
 }
 exports.CreateTrainingWeekDto = CreateTrainingWeekDto;
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Name of the training week',
+        example: 'Push Pull Legs Week 1',
+    }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], CreateTrainingWeekDto.prototype, "name", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Type of workout split for this training week',
+        enum: client_1.WorkoutType,
+        example: client_1.WorkoutType.PUSH_PULL_LEGS,
+    }),
     (0, class_validator_1.IsEnum)(client_1.WorkoutType),
     __metadata("design:type", String)
 ], CreateTrainingWeekDto.prototype, "workoutType", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Number of rest days during the week',
+        example: 1,
+        minimum: 0,
+    }),
     (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(0),
     __metadata("design:type", Number)
 ], CreateTrainingWeekDto.prototype, "restDays", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Number of training days during the week',
+        example: 5,
+        minimum: 1,
+    }),
     (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(1),
     __metadata("design:type", Number)
 ], CreateTrainingWeekDto.prototype, "trainingDays", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'ID of the user who owns this training week',
+        example: 1,
+    }),
     (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
 ], CreateTrainingWeekDto.prototype, "userId", void 0);
