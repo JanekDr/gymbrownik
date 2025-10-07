@@ -6,7 +6,6 @@ import { OwnerOrAdminGuard } from '../auth/owner-or-admin.guard';
 import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 import { DatabaseService } from '../database/database.service';
-import { HttpStatus } from '@nestjs/common';
 
 describe('WorkoutController', () => {
     let controller: WorkoutController;
