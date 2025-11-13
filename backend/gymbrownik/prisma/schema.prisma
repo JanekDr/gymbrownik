@@ -26,6 +26,12 @@ enum WorkoutType {
   CUSTOM
 }
 
+enum ExerciseStatus {
+  CONFIRMED
+  PENDING
+  DECLINED
+}
+
 enum BodyPart {
   CHEST
   BACK
@@ -83,6 +89,7 @@ model Workout {
 model Exercise {
   id       Int               @id @default(autoincrement())
   name     String
+  status   ExerciseStatus @default(PENDING)
   bodyPart BodyPart?
   workouts WorkoutExercise[]
 }
